@@ -19,7 +19,7 @@ namespace CoreEscuela.Entidades
 
         public string ciudad { get; set; }
 
-        private int myVar;
+        public TiposEscuela tipoEscuela { get; set; }
 
         public Escuela(string nombre, int anoDeCreacion, string pais, string ciudad)
         {
@@ -27,6 +27,11 @@ namespace CoreEscuela.Entidades
             this.anoDeCreacion = anoDeCreacion;
             this.pais = pais;
             this.ciudad = ciudad;
+        }
+
+        public override string ToString()
+        {
+            return $"Nombre: {nombre}, Tipo: {tipoEscuela} \nPais: {pais}, Ciudad: {ciudad}";
         }
 
 
