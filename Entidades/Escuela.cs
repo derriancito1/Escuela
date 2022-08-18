@@ -29,9 +29,18 @@ namespace CoreEscuela.Entidades
             this.ciudad = ciudad;
         }
 
+        public Escuela(string nombre, int anoDeCreacion, TiposEscuela tiposEscuela, string pais="", string ciudad="")
+        {
+            this.nombre = nombre;
+            this.anoDeCreacion = anoDeCreacion;
+            this.pais = pais;
+            this.ciudad = ciudad;
+            this.tipoEscuela = tipoEscuela;
+        }
+
         public override string ToString()
         {
-            return $"Nombre: {nombre}, Tipo: {tipoEscuela} \nPais: {pais}, Ciudad: {ciudad}";
+            return $"Nombre: {nombre}, Tipo: {tipoEscuela} Pais: {pais}, Ciudad: {ciudad} {System.Environment.NewLine}";
         }
 
 
