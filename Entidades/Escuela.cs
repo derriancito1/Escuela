@@ -21,6 +21,8 @@ namespace CoreEscuela.Entidades
 
         public TiposEscuela tipoEscuela { get; set; }
 
+        public Curso[] Cursos {get; set;}
+
         public Escuela(string nombre, int anoDeCreacion, string pais, string ciudad)
         {
             this.nombre = nombre;
