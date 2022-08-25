@@ -33,23 +33,21 @@ var otraColeccion = new List<Curso>()
 {
     new Curso() { nombre = "401", jornada=TiposJornada.Mañana},
     new Curso() { nombre = "501", jornada=TiposJornada.Mañana},
-    new Curso() { nombre = "502", jornada=TiposJornada.Mañana}
+    new Curso() { nombre = "501", jornada=TiposJornada.Tarde}
 };
 
-//Curso tmp = new Curso{nombre="101-vacacional", jornada= TiposJornada.Noche};
 escuela.Cursos.AddRange(otraColeccion);
-//escuela.Cursos.Add(tmp);
 imprimirCursosEscuela(escuela);
-//Console.WriteLine("Curso.Hash "+ tmp.GetHashCode());
-//escuela.Cursos.Remove(tmp); remover un objeto con hash
-Predicate<Curso>miAlgoritmo = predicado;
-escuela.Cursos.RemoveAll(miAlgoritmo);
+//Remover con delegate 
+escuela.Cursos.RemoveAll(delegate (Curso cur)
+                        {
+                            return cur.nombre == "301";
+                        });
+//remover con lambda 
+escuela.Cursos.RemoveAll((cur)=> cur.nombre == "501" && cur.jornada == TiposJornada.Mañana);
 
 
-bool predicado(Curso obj)
-{
-    return obj.nombre == "301";
-}
+
 
 Console.WriteLine("==========================cursos 2 ");
 imprimirCursosEscuela(escuela);
