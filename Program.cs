@@ -2,16 +2,17 @@
 using static System.Console;
 using System.Collections.Generic;
 using System;
+using CoreEscuela.Util;
 
 var engine = new EscuelaEngine();
 engine.Inicializar();
+Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
+Printer.Beep(10000, cantidad:10);
 imprimirCursosEscuela(engine.Escuela);
 
 static void imprimirCursosEscuela(Escuela escuela)
 {
-    WriteLine("=======================");
-    Console.WriteLine("Lista de Cursos escuela");
-    Console.WriteLine("=======================");
+    Printer.WriteTitle("Cursos de la Escuela");
 
     if (escuela?.Cursos != null)
     {
