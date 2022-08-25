@@ -7,7 +7,7 @@ using CoreEscuela.Util;
 var engine = new EscuelaEngine();
 engine.Inicializar();
 Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
-Printer.Beep(10000, cantidad:10);
+//Printer.Beep(10000, cantidad:10);
 imprimirCursosEscuela(engine.Escuela);
 
 static void imprimirCursosEscuela(Escuela escuela)
