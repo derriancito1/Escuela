@@ -5,10 +5,7 @@ namespace CoreEscuela.Entidades
     {
         public Escuela Escuela { get; set; }
 
-        public EscuelaEngine()
-        {
-
-        }
+        //public List<Evaluacion> Evaluaciones {get; set;}
 
         public void Inicializar()
         {
@@ -22,7 +19,28 @@ namespace CoreEscuela.Entidades
 
         private void CargarEvaluaciones()
         {
-            throw new NotImplementedException();
+            foreach (var curso in Escuela.Cursos)
+            {
+                foreach (var asignatura in curso.Asignaturas)
+                {
+                    foreach (var alumno in curso.Alumnos)
+                    {
+                        var rnd = new Random(System.Environment.TickCount);
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            var ev = new Evaluacion
+                            {
+                                Asignatura = asignatura,
+                                nombre = $"{asignatura.nombre} Ev#{i+1}",
+                                Nota = (float)(5*rnd.NextDouble()),
+                                Alumno = alumno
+                            };
+                            alumno.Evaluacion.Add(ev);
+                        }
+                    }
+                }
+            }
         }
 
         private void CargarAsignaturas()
