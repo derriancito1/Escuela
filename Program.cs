@@ -10,6 +10,11 @@ Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
 //Printer.Beep(10000, cantidad:10);
 imprimirCursosEscuela(engine.Escuela);
 
+Printer.DrawLine(20);
+Printer.DrawLine(20);
+Printer.DrawLine(20);
+Printer.WriteTitle("Pruebas de polimorfismo");
+
 static void imprimirCursosEscuela(Escuela escuela)
 {
     Printer.WriteTitle("Cursos de la Escuela");
@@ -18,7 +23,7 @@ static void imprimirCursosEscuela(Escuela escuela)
     {
         foreach (var curso in escuela.Cursos)
         {
-            Console.WriteLine($"Nombre {curso.nombre}, id {curso.uniqueId}");
+            Console.WriteLine($"Nombre {curso.nombre}, id {curso.uniqueId} Alumno {curso.Alumnos}");
         }
     }
 }

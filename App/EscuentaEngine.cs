@@ -1,9 +1,9 @@
 using System.Linq;
 namespace CoreEscuela.Entidades
 {
-    public class EscuelaEngine
+    public sealed class EscuelaEngine
     {
-        public Escuela Escuela { get; set; }
+        public  Escuela Escuela { get; set; }
 
         //public List<Evaluacion> Evaluaciones {get; set;}
 
@@ -36,7 +36,7 @@ namespace CoreEscuela.Entidades
                                 Nota = (float)(5*rnd.NextDouble()),
                                 Alumno = alumno
                             };
-                            alumno.Evaluacion.Add(ev);
+                            alumno.Evaluaciones.Add(ev);
                         }
                     }
                 }
