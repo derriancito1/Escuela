@@ -1,11 +1,16 @@
 using System.Linq;
+using CoreEscuela.Entidades;
 namespace CoreEscuela.Entidades
 {
     public sealed class EscuelaEngine
     {
         public  Escuela Escuela { get; set; }
 
-        //public List<Evaluacion> Evaluaciones {get; set;}
+        
+        public EscuelaEngine()
+        {
+
+        }
 
         public void Inicializar()
         {
@@ -33,7 +38,7 @@ namespace CoreEscuela.Entidades
                             {
                                 Asignatura = asignatura,
                                 nombre = $"{asignatura.nombre} Ev#{i+1}",
-                                Nota = (float)(5*rnd.NextDouble()),
+                                Nota = (float)(5 * rnd.NextDouble()),
                                 Alumno = alumno
                             };
                             alumno.Evaluaciones.Add(ev);
@@ -41,6 +46,25 @@ namespace CoreEscuela.Entidades
                     }
                 }
             }
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetoEscuela()
+        {
+            var listaObj = new List<ObjetoEscuelaBase>();
+            listaObj.Add(Escuela);
+            listaObj.AddRange(Escuela.Cursos);
+
+            foreach (var curso in Escuela.Cursos)
+            {
+                listaObj.AddRange(curso.Asignaturas);
+                listaObj.AddRange(curso.Alumnos);
+
+                foreach (var alumno in curso.Alumnos)
+                {
+                    listaObj.AddRange(alumno.Evaluaciones);
+                }
+            }
+            return listaObj;
         }
 
         private void CargarAsignaturas()
@@ -68,7 +92,7 @@ namespace CoreEscuela.Entidades
                                from n2 in nombre2
                                from a1 in apellido1
                                select new Alumno{nombre=$"{n1} {n2} {a1}"};
-            return listaAlumnos.OrderBy((Al)=>Al.uniqueId).Take(cantidad).ToList();
+            return listaAlumnos.OrderBy((Al) => Al.uniqueId).Take(cantidad).ToList();
         }
 
         private void CargarCursos()

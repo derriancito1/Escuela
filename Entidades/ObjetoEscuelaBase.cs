@@ -14,4 +14,9 @@ public abstract class ObjetoEscuelaBase
     {
         uniqueId = Guid.NewGuid().ToString();
     }
+
+    public override string ToString()
+    {
+        return $"{nombre},{uniqueId}";
+    }
 }
