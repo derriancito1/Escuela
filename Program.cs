@@ -11,13 +11,13 @@ Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
 //Printer.Beep(10000, cantidad:10);
 imprimirCursosEscuela(engine.Escuela);
 
-var listaObjetos = engine.GetObjetoEscuela();
+var listaObjetos = engine.GetObjetoEscuela(
+    out int conteoEvaluaciones,
+    out int conteoCursos,
+    out int conteoAsignaturas,
+    out int conteoAlumnos
+);
 
-var listaILugar = from obj in listaObjetos
-                where obj is Alumno
-                select (Alumno) obj;
-
-//engine.Escuela.limpiarLugar();
 
 
 
