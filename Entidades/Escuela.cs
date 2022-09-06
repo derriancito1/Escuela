@@ -53,6 +53,7 @@ namespace CoreEscuela.Entidades
         {
             Printer.DrawLine();
             Console.WriteLine("Limpiando Escuela...");
+            Printer.Beep(1000,cantidad:3);
             foreach (var curso in Cursos)
             {
                 curso.limpiarLugar();

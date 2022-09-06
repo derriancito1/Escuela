@@ -3,6 +3,7 @@ using static System.Console;
 using System.Collections.Generic;
 using System;
 using CoreEscuela.Util;
+using System.Linq;
 
 var engine = new EscuelaEngine();
 engine.Inicializar();
@@ -11,6 +12,12 @@ Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
 imprimirCursosEscuela(engine.Escuela);
 
 var listaObjetos = engine.GetObjetoEscuela();
+
+var listaILugar = from obj in listaObjetos
+                where obj is Alumno
+                select (Alumno) obj;
+
+//engine.Escuela.limpiarLugar();
 
 
 
