@@ -22,6 +22,52 @@ namespace CoreEscuela.Entidades
 
         }
 
+        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+            bool traeEvaluaciones = true,
+            bool traerAlunmos = true,
+            bool traerAsignaturas = true,
+            bool traerCursos = true
+            )
+        {
+            return GetObjetoEscuela(out int dummy, out dummy, out dummy, out dummy);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+            out int conteoEvaluaciones,
+            bool traeEvaluaciones = true,
+            bool traerAlunmos = true,
+            bool traerAsignaturas = true,
+            bool traerCursos = true
+            )
+        {
+            return GetObjetoEscuela(out conteoEvaluaciones, out int dummy, out dummy, out dummy);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+            out int conteoEvaluaciones,
+            out int conteoCursos,
+            bool traeEvaluaciones = true,
+            bool traerAlunmos = true,
+            bool traerAsignaturas = true,
+            bool traerCursos = true
+            )
+        {
+            return GetObjetoEscuela(out conteoEvaluaciones, out conteoCursos, out int dummy, out dummy);
+        }
+
+        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+            out int conteoEvaluaciones,
+            out int conteoCursos,
+            out int conteoAsignaturas,
+            bool traeEvaluaciones = true,
+            bool traerAlunmos = true,
+            bool traerAsignaturas = true,
+            bool traerCursos = true
+            )
+        {
+            return GetObjetoEscuela(out conteoEvaluaciones, out conteoCursos, out conteoAsignaturas, out int dummy);
+        }
+
 
         public List<ObjetoEscuelaBase> GetObjetoEscuela(
             out int conteoEvaluaciones,
