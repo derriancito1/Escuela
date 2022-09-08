@@ -22,7 +22,7 @@ namespace CoreEscuela.Entidades
 
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuela(
             bool traeEvaluaciones = true,
             bool traerAlunmos = true,
             bool traerAsignaturas = true,
@@ -32,7 +32,7 @@ namespace CoreEscuela.Entidades
             return GetObjetoEscuela(out int dummy, out dummy, out dummy, out dummy);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuela(
             out int conteoEvaluaciones,
             bool traeEvaluaciones = true,
             bool traerAlunmos = true,
@@ -43,7 +43,7 @@ namespace CoreEscuela.Entidades
             return GetObjetoEscuela(out conteoEvaluaciones, out int dummy, out dummy, out dummy);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuela(
             out int conteoEvaluaciones,
             out int conteoCursos,
             bool traeEvaluaciones = true,
@@ -55,7 +55,7 @@ namespace CoreEscuela.Entidades
             return GetObjetoEscuela(out conteoEvaluaciones, out conteoCursos, out int dummy, out dummy);
         }
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuela(
             out int conteoEvaluaciones,
             out int conteoCursos,
             out int conteoAsignaturas,
@@ -69,7 +69,7 @@ namespace CoreEscuela.Entidades
         }
 
 
-        public List<ObjetoEscuelaBase> GetObjetoEscuela(
+        public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuela(
             out int conteoEvaluaciones,
             out int conteoCursos,
             out int conteoAsignaturas,
@@ -104,7 +104,7 @@ namespace CoreEscuela.Entidades
                     }
                 }
             }
-            return listaObj;
+            return listaObj.AsReadOnly();
         }
 
 
