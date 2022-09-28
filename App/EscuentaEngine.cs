@@ -22,6 +22,8 @@ namespace CoreEscuela.Entidades
 
         }
 
+        
+
         public IReadOnlyList<ObjetoEscuelaBase> GetObjetoEscuela(
             bool traeEvaluaciones = true,
             bool traerAlunmos = true,
