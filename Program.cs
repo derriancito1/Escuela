@@ -21,16 +21,9 @@ foreach (var keyValPair in diccionario)
     Console.WriteLine($"key: {keyValPair.Key} valor {keyValPair.Value}");
 }
 
-Printer.WriteTitle("Acceso a Diccionario");
-diccionario[0] = "Pekerman";
-WriteLine(diccionario[0]);
-Printer.WriteTitle("Otro Diccionario");
+var dictmp = engine.GetDiccionarioObjetos();
 
-var dic = new Dictionary<string, string>();
-dic["luna"] = "Cuerpo celeste que gira alrededor de la tierra";
-WriteLine(dic["luna"]);
-dic["luna"] = "Protagonista de soy luna";
-WriteLine(dic["luna"]);
+
 
 
 
