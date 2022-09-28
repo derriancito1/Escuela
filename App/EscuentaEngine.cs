@@ -22,11 +22,13 @@ namespace CoreEscuela.Entidades
 
         }
 
-        public Dictionary<string, IEnumerable<ObjetoEscuelaBase> >GetDiccionarioObjetos()
+        public Dictionary<LlavesDiccionario, IEnumerable<ObjetoEscuelaBase> >GetDiccionarioObjetos()
         {
-            var diccionario = new Dictionary<string, IEnumerable<ObjetoEscuelaBase>>();
-            diccionario.Add("Escuela", new[] {Escuela});
-            diccionario.Add("Cursos", Escuela.Cursos.Cast<ObjetoEscuelaBase>());
+            
+
+            var diccionario = new Dictionary<LlavesDiccionario, IEnumerable<ObjetoEscuelaBase>>();
+            diccionario.Add(LlavesDiccionario.Escuela, new[] {Escuela});
+            diccionario.Add(LlavesDiccionario.Curso, Escuela.Cursos.Cast<ObjetoEscuelaBase>());
             return diccionario;
         }
 
