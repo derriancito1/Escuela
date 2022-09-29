@@ -23,6 +23,8 @@ foreach (var keyValPair in diccionario)
 
 var dictmp = engine.GetDiccionarioObjetos();
 
+engine.ImprimirDiccionario(dictmp);
+
 
 
 
