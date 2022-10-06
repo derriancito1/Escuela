@@ -9,7 +9,7 @@ var engine = new EscuelaEngine();
 engine.Inicializar();
 Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
 //Printer.Beep(10000, cantidad:10);
-imprimirCursosEscuela(engine.Escuela);
+//imprimirCursosEscuela(engine.Escuela);
 
 Dictionary<int, string> diccionario = new Dictionary<int, string>();
 
@@ -23,7 +23,7 @@ foreach (var keyValPair in diccionario)
 
 var dictmp = engine.GetDiccionarioObjetos();
 
-engine.ImprimirDiccionario(dictmp);
+engine.ImprimirDiccionario(dictmp,true);
 
 
 

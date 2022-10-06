@@ -1,5 +1,7 @@
 using System.Linq;
 using CoreEscuela.Entidades;
+using CoreEscuela.Util;
+
 namespace CoreEscuela.Entidades
 {
     public sealed class EscuelaEngine
@@ -26,30 +28,35 @@ namespace CoreEscuela.Entidades
         {
             foreach (var obj in dic)
             {
-                Util.Printer.WriteTitle(obj.Key.ToString());
-
+                Printer.WriteTitle(obj.Key.ToString());
                 foreach (var val in obj.Value)
                 {
-
-
-                    if (val is Evaluacion)
+                    switch (obj.Key)
                     {
-                        if (imprimirEval)
-                        {
+                        case LlavesDiccionario.Evaluacion:
+                            if (imprimirEval)
+                            {
+                                Console.WriteLine(val);
+                            }
+                        break;
+                        case LlavesDiccionario.Escuela:
+                            Console.WriteLine("Escuela: " + val);
+                        break;
+                        case LlavesDiccionario.Alumno:
+                            Console.WriteLine("Alumno: " + val.nombre);
+                        break;
+                        case LlavesDiccionario.Curso:
+                            var cursotmp = val as Curso;
+                            if (cursotmp!=null)
+                            {
+                                int count = cursotmp.Alumnos.Count;
+                                Console.WriteLine("Curso: " + val.nombre + " Cantidad Alumnos: " + count);
+                            }
+                        break;
+                        default:
                             Console.WriteLine(val);
-                        }
-                        
-                    }else if (val is Escuela)
-                    {
-                        Console.WriteLine("Escuela: " + val);
-                    }else if (val is Alumno)
-                    {
-                        Console.WriteLine("Alumno: " + val.nombre);
-                    }else
-                    {
-                        Console.WriteLine(val);
-                    }
-                    
+                        break;
+                    }                    
                 }
             }
         }
@@ -181,7 +188,7 @@ namespace CoreEscuela.Entidades
                             {
                                 Asignatura = asignatura,
                                 nombre = $"{asignatura.nombre} Ev#{i+1}",
-                                Nota = (float)(5 * rnd.NextDouble()),
+                                Nota = MathF.Round((float)(5 * rnd.NextDouble()),2),
                                 Alumno = alumno
                             };
                             alumno.Evaluaciones.Add(ev);
