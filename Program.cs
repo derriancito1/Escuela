@@ -20,7 +20,11 @@ engine.Inicializar();
 Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
 
 var reporteador = new Reporteador(engine.GetDiccionarioObjetos());
-reporteador.GetListaEvaluaciones();
+var evalist = reporteador.GetListaEvaluaciones();
+var listaasig = reporteador.GetListaAsignaturas();
+
+Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
+
 
 
 

@@ -18,19 +18,30 @@ public class Reporteador
         _diccionario = dicObsEsc;
     }
 
-    public IEnumerable<Escuela> GetListaEvaluaciones()
+    public IEnumerable<Evaluacion> GetListaEvaluaciones()
     {
-        IEnumerable<Escuela> rta;
-        if (_diccionario.TryGetValue(LlavesDiccionario.Escuela,out IEnumerable<ObjetoEscuelaBase> lista))
+        if (_diccionario.TryGetValue(LlavesDiccionario.Evaluacion,out IEnumerable<ObjetoEscuelaBase> lista))
         {
-            rta = lista.Cast<Escuela>();
+            return lista.Cast<Evaluacion>();
         }else
         {
-            rta = null;
+            return new List<Evaluacion>();
             //Escribir en log
         }
-       //var respuesta = _diccionario.TryGetValue(LlavesDiccionario.Escuela,out IEnumerable<ObjetoEscuelaBase> lista);
-        return rta;
+    }
+
+    public IEnumerable<string> GetListaAsignaturas()
+    {
+        var listaEvaluaciones = GetListaEvaluaciones();
+        return (from Evaluacion ev in listaEvaluaciones 
+        where ev.Nota >= 3.0f
+        select ev.Asignatura.nombre).Distinct();
+    }
+
+    public Dictionary<string, IEnumerable< Evaluacion>> GetDicEvaluaXAsig()
+    {
+        var dictaRta = new Dictionary<string, IEnumerable<Evaluacion>>();
+        return dictaRta;
     }
 }
 
