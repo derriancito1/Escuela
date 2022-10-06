@@ -2,7 +2,7 @@ using System.Linq;
 using CoreEscuela.Entidades;
 using CoreEscuela.Util;
 
-namespace CoreEscuela.Entidades
+namespace CoreEscuela.App
 {
     public sealed class EscuelaEngine
     {
