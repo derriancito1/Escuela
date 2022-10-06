@@ -5,6 +5,15 @@ using System;
 using CoreEscuela.Util;
 using System.Linq;
 
+AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
+AppDomain.CurrentDomain.ProcessExit += (o, s)=>Printer.Beep(100,1000,1);
+void AccionDelEvento(object? sender, EventArgs e)
+{
+    Printer.WriteTitle("Saliendo");
+    Printer.Beep(3000,1000,2);
+    Printer.WriteTitle("Salio");
+}
+
 var engine = new EscuelaEngine();
 engine.Inicializar();
 Printer.WriteTitle("BIENVENIDOS A LA ESCUELA");
